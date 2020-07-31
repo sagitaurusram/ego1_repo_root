@@ -34,15 +34,18 @@ VALID_COMMANDS={
 "r" : "right turn",
 "f" : "forward",
 "b" : "reverse",
-"s" : "stop"
+"s" : "stop",
+"HELLO": "hello"
 
 }
 cmd=0
 while True:
 	cmd=input("Enter the command  :  ");
+	'''	
 	if cmd not in VALID_COMMANDS.keys():
 		print("please use valid commands")
 		print(VALID_COMMANDS)
+	'''
 	s.send(cmd)
 	print("sent cmd  :"+cmd)
 
