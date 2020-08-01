@@ -1,0 +1,3 @@
+python -m serial.tools.miniterm /dev/ttyUSB0 38400 --eol LF
+
+minicom -D /dev/ttyUSB0 -b 38400
