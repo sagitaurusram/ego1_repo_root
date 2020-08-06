@@ -1,0 +1,4 @@
+pip3 install switchcase
+pip3 install pynput
+pip3 install pybluez
+for raspberry pi bluetooth configuration in gui do :sudo apt-get install bluetooth bluez blueman
