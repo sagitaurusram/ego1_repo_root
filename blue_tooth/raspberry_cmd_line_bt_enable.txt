@@ -1,0 +1,7 @@
+sudo bluetoothctl
+agent on
+default-agent
+scan on
+pair 98:D3:91:FD:53:B3
+---> enter password
+---> then run the bt_key.. python file and make sure the pairing address is directly passed
