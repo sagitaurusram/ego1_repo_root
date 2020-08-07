@@ -2,3 +2,6 @@ pip3 install switchcase
 pip3 install pynput
 pip3 install pybluez
 for raspberry pi bluetooth configuration in gui do :sudo apt-get install bluetooth bluez blueman
+sudo apt-get install apache2 -y
+git clone https://github.com/jacksonliam/mjpg-streamer.git
+sudo apt-get install cmake libjpeg8-dev
