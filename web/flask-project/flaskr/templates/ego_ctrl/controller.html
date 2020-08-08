@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Controller title{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('blog.create') }}">New</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+<p>Date/Time: <span id="datetime"></span></p>
+
+<script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleString();
+</script>
+<form method="post">
+    <input type="submit" name="forward_button" value="forward">
+    <input type="submit" name="reverse_button" value="reverse">
+    <input type="submit" name="right_button"   value="right">
+    <input type="submit" name="left_button"    value="left">
+    <input type="submit" name="stop_button"    value="stop">
+    <input type="submit" name="accel_button"   value="accel">
+    <input type="submit" name="decel_button"   value="decel">
+</form>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+        $(function() {
+          $('a#test').bind('click', function() {
+            $.getJSON('/ego_ctrl/background_process_test',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+</script>
+
+
+//button
+<div class='container'>
+    <h3>Test</h3>
+        <form>
+            <a href=# id=test><button class='btn btn-default'>Test</button></a>
+        </form>
+
+</div>
+{% endblock %}
+
+
