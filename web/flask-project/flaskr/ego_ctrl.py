@@ -1,6 +1,9 @@
 import functools
 import os
 import sys
+
+
+
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
@@ -23,4 +26,7 @@ def index():
 @bp.route('/background_process_test')
 def background_process_test():
     print("hello sriram",file=sys.stdout)
+    print("in background process test")
     return ("nothing")
+
+

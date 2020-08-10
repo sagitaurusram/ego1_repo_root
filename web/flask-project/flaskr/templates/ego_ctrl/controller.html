@@ -10,6 +10,16 @@
 {% block content %}
 <p>Date/Time: <span id="datetime"></span></p>
 
+<script src="https://cdn.socket.io/socket.io-1.2.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    var socket = io();//("http://127.0.0.1:5000/ego");
+    
+function sendMsg(){
+socket.emit("message","HELLO WORLD")
+}
+</script>
+
 <script>
 var dt = new Date();
 document.getElementById("datetime").innerHTML = dt.toLocaleString();
@@ -24,18 +34,9 @@ document.getElementById("datetime").innerHTML = dt.toLocaleString();
     <input type="submit" name="decel_button"   value="decel">
 </form>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type=text/javascript>
-        $(function() {
-          $('a#test').bind('click', function() {
-            $.getJSON('/ego_ctrl/background_process_test',
-                function(data) {
-              //do nothing
-            });
-            return false;
-          });
-        });
-</script>
+<button onClick="sendMsg()">Hit me</button>
+
+
 
 
 //button
