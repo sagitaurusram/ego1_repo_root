@@ -24,29 +24,96 @@ socket.emit("message","HELLO WORLD")
 var dt = new Date();
 document.getElementById("datetime").innerHTML = dt.toLocaleString();
 </script>
-<form method="post">
-    <input type="submit" name="forward_button" value="forward">
-    <input type="submit" name="reverse_button" value="reverse">
-    <input type="submit" name="right_button"   value="right">
-    <input type="submit" name="left_button"    value="left">
-    <input type="submit" name="stop_button"    value="stop">
-    <input type="submit" name="accel_button"   value="accel">
-    <input type="submit" name="decel_button"   value="decel">
-</form>
 
-<button onClick="sendMsg()">Hit me</button>
+<style>
+.grid-container {
+  color:red;
+  background-color:lightblue;
+  background-color: #4CAF50; 
+  border: solid;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  outline-style:solid;
+  display:grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto;
+}
+
+.forward_class {
+  grid-column: 2;
+}
+
+.reverse_class {
+  grid-column-start: 2;
+  grid-row:3;
+}
+
+.left_class {
+  grid-column-start: 1;
+  grid-row:2;
+}
+
+.right_class {
+  grid-column-start: 3;
+  grid-row:2;
+}
+
+.stop_class {
+  grid-column-start: 2;
+  grid-row:4;
+}
+
+.accel_class {
+  grid-column-start: 1;
+  grid-row:4;
+}
+
+.decel_class {
+  grid-column-start: 3;
+  grid-row:4;
+}
+
+.ego_image {
+  grid-column:2;
+  grid-row:5;
+}
+
+div.buttons_div{
+position:relative;
+display:block;
+left:100;
+color:Tomato;
+border:3px solid #73AD21;
+outline-style:solid;
+}
+
+img {
+display:block;
+margin-left:auto;
+margin-right:auto;
+}
+</style>
 
 
-
-
-//button
-<div class='container'>
-    <h3>Test</h3>
-        <form>
-            <a href=# id=test><button class='btn btn-default'>Test</button></a>
-        </form>
-
+<div class="grid-container">
+<button class="forward_class" id="move_forward_id" onClick="forward()">move forward</button>
+<button class="reverse_class" id="move_reverse_id" onClick="reverse()">move_reverse</button>
+<button class="left_class"    id="left_id"         onClick="reverse()">turn left</button>
+<button class="right_class"   id="right_id"        onClick="reverse()">turn right</button>
+<button class="stop_class"    id="stop_id"         onClick="reverse()">stop</button>
+<button class="accel_class"   id="accel_id"        onClick="reverse()">accelerate</button>
+<button class="decel_class"   id="decel_id"        onClick="reverse()">decelerate</button>
 </div>
+
+
+<img  src="http://localhost:8080/?action=stream" title="Title of image" alt="alt text here"/>
+
+
+
 {% endblock %}
 
 
