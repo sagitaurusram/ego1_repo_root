@@ -1,7 +1,8 @@
+from importlib import import_module
 import os
-from flask import Flask
+from flask import Flask, Response
 from flask_socketio import SocketIO, emit, join_room, leave_room,close_room,rooms,disconnect
-
+from flaskr.camera_pi import Camera
 
 #def create_app(test_config=None):
 # create and configure the app
@@ -52,8 +53,22 @@ def test_connect():
 @socketio.on('message')
 def on_message(data):
 	print('I received a message')
+###################################################################CAMERA
+def gen(camera):
+    """Video streaming generator function."""
+    while True:
+        frame = camera.get_frame()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 
+@app.route('/video_feed')
+def video_feed():
+    """Video streaming route. Put this in the src attribute of an img tag."""
+    return Response(gen(Camera()),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+
+####################################################################################CAMERA END
 #return app
 if __name__=='__main__':
 	socketio.run(app)
