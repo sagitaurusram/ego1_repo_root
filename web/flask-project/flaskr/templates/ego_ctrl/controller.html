@@ -18,6 +18,29 @@
 function sendMsg(){
 socket.emit("message","HELLO WORLD")
 }
+
+function botForward(){
+socket.emit("forward")
+}
+function botReverse(){
+socket.emit("reverse")
+}
+function botLeft(){
+socket.emit("left")
+}
+function botRight(){
+socket.emit("right")
+}
+function botStop(){
+socket.emit("stop")
+}
+function botAccelerate(){
+socket.emit("accelerate")
+}
+function botDecelerate(){
+socket.emit("decelerate")
+}
+
 </script>
 
 <script>
@@ -100,13 +123,13 @@ margin-right:auto;
 
 
 <div class="grid-container">
-<button class="forward_class" id="move_forward_id" onClick="forward()">move forward</button>
-<button class="reverse_class" id="move_reverse_id" onClick="reverse()">move_reverse</button>
-<button class="left_class"    id="left_id"         onClick="reverse()">turn left</button>
-<button class="right_class"   id="right_id"        onClick="reverse()">turn right</button>
-<button class="stop_class"    id="stop_id"         onClick="reverse()">stop</button>
-<button class="accel_class"   id="accel_id"        onClick="reverse()">accelerate</button>
-<button class="decel_class"   id="decel_id"        onClick="reverse()">decelerate</button>
+<button class="forward_class" id="move_forward_id" onClick="botForward()">move forward</button>
+<button class="reverse_class" id="move_reverse_id" onClick="botReverse()">move_reverse</button>
+<button class="left_class"    id="left_id"         onClick="botLeft()">turn left</button>
+<button class="right_class"   id="right_id"        onClick="botRight()">turn right</button>
+<button class="stop_class"    id="stop_id"         onClick="botStop()">stop</button>
+<button class="accel_class"   id="accel_id"        onClick="botAccelerate()">accelerate</button>
+<button class="decel_class"   id="decel_id"        onClick="botDecelerate()">decelerate</button>
 </div>
 
 

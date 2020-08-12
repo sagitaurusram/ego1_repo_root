@@ -2,6 +2,8 @@ from importlib import import_module
 import os
 from flask import Flask, Response
 from flask_socketio import SocketIO, emit, join_room, leave_room,close_room,rooms,disconnect
+from flaskr.bluetooth_connector_hc06 import BluetoothConnectorHC06
+from flaskr.bot_controller import BotController
 #from flaskr.camera_pi import Camera
 
 #def create_app(test_config=None):
@@ -42,6 +44,16 @@ app.add_url_rule('/', endpoint='index')
 
 from . import ego_ctrl
 app.register_blueprint(ego_ctrl.bp)
+######################################################################SOCKET IO and BOT
+bt_conn=BluetoothConnectorHC06()
+bt_socket=None
+if(bt_conn.scan_for_devices()==1):
+	bt_socket=bt_conn.connect_bluetooth()
+else:
+	print("bluetooth connection failed")
+	exit()
+
+bot=BotController()
 
 socketio=SocketIO(app)
 
@@ -53,6 +65,49 @@ def test_connect():
 @socketio.on('message')
 def on_message(data):
 	print('I received a message')
+
+@socketio.on('forward')
+def on_forward():
+	print("socket rcvd : forward")
+	bot.on_cmd_reception("move_forward")
+	bt_socket.send(bot.cmd_to_send)
+
+@socketio.on('reverse')
+def on_reverse():
+	print("socket rcvd : reverse")
+	bot.on_cmd_reception("move_reverse")
+	bt_socket.send(bot.cmd_to_send)
+
+@socketio.on('left')
+def on_left():
+	print("socket rcvd : left")
+	bot.on_cmd_reception("turn_left")
+	bt_socket.send(bot.cmd_to_send)
+
+@socketio.on('right')
+def on_right():
+	print("socket rcvd : right")
+	bot.on_cmd_reception("turn_right")
+	bt_socket.send(bot.cmd_to_send)
+
+@socketio.on('stop')
+def on_stop():
+	print("socket rcvd : stop")
+	bot.on_cmd_reception("stop")
+	bt_socket.send(bot.cmd_to_send)
+
+@socketio.on('accelerate')
+def on_accelerate():
+	print("socket rcvd : accelerate")
+	bot.on_cmd_reception("accelerate")
+	bt_socket.send(bot.cmd_to_send)
+
+@socketio.on('decelerate')
+def on_decelerate():
+	print("socket rcvd : decelerate")
+	bot.on_cmd_reception("decelerate")
+	bt_socket.send(bot.cmd_to_send)
+
 ###################################################################CAMERA
 '''
 def gen(camera):
