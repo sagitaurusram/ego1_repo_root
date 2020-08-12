@@ -5,3 +5,5 @@ for raspberry pi bluetooth configuration in gui do :sudo apt-get install bluetoo
 sudo apt-get install apache2 -y
 git clone https://github.com/jacksonliam/mjpg-streamer.git
 sudo apt-get install cmake libjpeg8-dev
+pip3 install picamera==1.3
+pip3 install Flask-SocketIO

@@ -2,7 +2,7 @@ from importlib import import_module
 import os
 from flask import Flask, Response
 from flask_socketio import SocketIO, emit, join_room, leave_room,close_room,rooms,disconnect
-from flaskr.camera_pi import Camera
+#from flaskr.camera_pi import Camera
 
 #def create_app(test_config=None):
 # create and configure the app
@@ -54,6 +54,7 @@ def test_connect():
 def on_message(data):
 	print('I received a message')
 ###################################################################CAMERA
+'''
 def gen(camera):
     """Video streaming generator function."""
     while True:
@@ -67,7 +68,7 @@ def video_feed():
     """Video streaming route. Put this in the src attribute of an img tag."""
     return Response(gen(Camera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
-
+'''
 ####################################################################################CAMERA END
 #return app
 if __name__=='__main__':
