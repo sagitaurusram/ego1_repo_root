@@ -76,22 +76,22 @@ FILE CONTENT
 ***************************************************************************************************************
 ego1_repo_root/
 
-/arduino_programs:
+     /arduino_programs:
 		/copy_of_sriram_libs
 			/arduino_definitions.h
 			/motor_control.c
 		/manual_loop_test_with_bluetooth
 		/simple_motor_test_with_bluetooth
 		/simple_motor_test_with_serial
-/bluetooth:
+     /bluetooth:
 		/bluetooth_connector.py
 		/bt_keyboard_ctrl_test.py
 		/bt_ubuntu_HC06_sanity_test
 		/read_keybaord.py
 		/raspberry_cmd_line_bt_enable.txt
 		
-/ego0_backup
-	/ego
+    /ego0_backup
+	      /ego
 		/demorad
 			/Python
 			/board_connect_sanity.py
@@ -109,10 +109,10 @@ ego1_repo_root/
 			/rajib_orig.py
 			/rasp_cam.py    #mjpg streamer based video stream to a web port
 			
-dependencies : dependencies for python etc
-README.md 
+     dependencies : dependencies for python etc
+     README.md 
 
-/web
+    /web
 
     /flask-project # files in flask application:
     	/flaskr
@@ -134,6 +134,6 @@ README.md
 	/useful_cmd_in_lan : commands to launch flask project
 	/useful_cmd_port_forwarded : if you want to do port forwarding to access the flask url from outside lan use this
 	
-  /live_stream
+    /live_stream
         rasp_stream.sh: to launch mjpg streamer : credit : https://github.com/jacksonliam/mjpg-streamer
-  /port_forwarding_commands.txt : to forward urls to outside lan
+    /port_forwarding_commands.txt : to forward urls to outside lan
