@@ -72,13 +72,68 @@ To embed the video stream:
                     mimetype='multipart/x-mixed-replace; boundary=frame')
     
 ***************************************************************************************************************
-OTHER FILES
+FILE CONTENT
 ***************************************************************************************************************
-Other files in flask application:
-    web/flask-project/flaskr
-    auth ( from tutorial : for log in authentication)
-    blog ( from tutorial : to create blogs)
-    db ( from tutorial : sql database  )
-    camera, camera_Pi, base_camera : trials to make use of picamera python module to get streaming from raspberry pi cam
-    test_bt.py : to just test the usage of bot_controller and bluetooth connector without bringing up any webserver
-    
+ego1_repo_root/
+
+/arduino_programs:
+		/copy_of_sriram_libs
+			/arduino_definitions.h
+			/motor_control.c
+		/manual_loop_test_with_bluetooth
+		/simple_motor_test_with_bluetooth
+		/simple_motor_test_with_serial
+/bluetooth:
+		/bluetooth_connector.py
+		/bt_keyboard_ctrl_test.py
+		/bt_ubuntu_HC06_sanity_test
+		/read_keybaord.py
+		/raspberry_cmd_line_bt_enable.txt
+		
+/ego0_backup
+	/ego
+		/demorad
+			/Python
+			/board_connect_sanity.py
+			/demorad_linux  #files copied from demorad pendrive out of the box
+		/demorad_linux	
+		/scripts
+			/callMPU.py
+			/dhcpcd.conf
+			/gps.py
+			/manual_gui.py
+			/manual_guiv2.py
+			/mpu.py
+			/pyserialcmd.txt
+			/rajib.py
+			/rajib_orig.py
+			/rasp_cam.py    #mjpg streamer based video stream to a web port
+			
+dependencies : dependencies for python etc
+README.md 
+
+/web
+
+    /flask-project # files in flask application:
+    	/flaskr
+		/auth.py ( from tutorial : for log in authentication)
+    		/blog.py ( from tutorial : to create blogs)
+    		/db.py   ( from tutorial : sql database  )
+		/bluetooth_connector_hc06.py
+		/bot_controller.py
+    		/camera, camera_Pi, base_camera : trials to make use of picamera python module to get streaming from raspberry pi cam
+    		/test_bt.py : to just test the usage of bot_controller and bluetooth connector without bringing up any webserver
+		/templates
+			/auth
+			/blog
+			/ego_ctrl
+				controller.html
+			base.html
+		/static
+			style.css
+	/useful_cmd_in_lan : commands to launch flask project
+	/useful_cmd_port_forwarded : if you want to do port forwarding to access the flask url from outside lan use this
+	
+  /live_stream
+        rasp_stream.sh: to launch mjpg streamer : credit : https://github.com/jacksonliam/mjpg-streamer
+  /port_forwarding_commands.txt : to forward urls to outside lan
