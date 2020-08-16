@@ -43,8 +43,8 @@ web/flask-project/flaskr
     templates/blog ( from tutorial)
     templates/ego_ctrl/controller.html
         has the buttons and serves socketio links and commands
-summary: from webpage js sends "forward" call
-    @socketio.on('forward')
+   summary: from webpage js sends "forward" call
+    @socketio.on('forward') 
     def on_forward():
 	    print("socket rcvd : forward")
 	    bot.on_cmd_reception("move_forward")
